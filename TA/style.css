@@ -1,0 +1,128 @@
+/* style.css - modern clean style */
+
+:root{
+  /* Color palette */
+  --bg: #eef2f7;
+  --card: #ffffff;
+  --accent: #2d8cff;
+  --muted: #7a8696;
+  --ok: #2ea44f;
+  --nok: #e55353;
+
+  /* Layout / sizing */
+  --shadow: 0 6px 20px rgba(32,33,36,0.08);
+  --radius: 10px;
+  --maxw: 1400px;      /* max content width */
+  --left-col: 420px;   /* left panel width */
+  --content-width: 80%; /* percentage width of main container */
+}
+
+/* Reset / base */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  color: #1f2937;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg, #f7fbff 0%, var(--bg) 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Topbar */
+.topbar{
+  background: var(--card);
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+.brand{ font-weight:700; color:var(--accent); font-size:18px }
+.user{ font-size:14px; color:var(--muted) }
+
+/* Main layout */
+.container{
+  width: var(--content-width);
+  max-width: var(--maxw);
+  margin: 28px auto;
+  display: grid;
+  grid-template-columns: var(--left-col) 1fr;
+  gap: 24px;
+  padding: 0 24px;
+  flex: 1;
+}
+.panel{ background: var(--card); border-radius: 8px; padding: 18px; box-shadow: var(--shadow); }
+
+/* Forms / inputs */
+.form-inline input[type=text]{ width:100%; margin-bottom:8px; padding:10px; border-radius:8px; border:1px solid #e6eef6 }
+.form input[type=text], .form input[type=password]{ width:100%; padding:10px; margin:8px 0 12px 0; border-radius:8px; border:1px solid #e6eef6 }
+
+/* Buttons */
+.btn{ display:inline-block; background:var(--accent); color:#fff; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; font-weight:600; }
+.btn.small{ padding:6px 10px; font-size:13px; }
+.btn.invert{ background:#fff; color:var(--accent); border:1px solid #e6eef6; }
+.btn:hover{ filter:brightness(.95) }
+
+/* Cards */
+.card{ background:var(--card); padding:22px; border-radius:12px; box-shadow:var(--shadow); width:var(--left-col) }
+.center-card{ min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px }
+.brand{ font-size:24px }
+
+/* Messages */
+.alert{ background:#fff6f6; border:1px solid #ffd6d6; padding:10px; border-radius:8px; color:var(--nok) }
+.info{ background:#f3fdff; border:1px solid #c6f0ff; padding:10px; border-radius:8px; color:#0b7285; margin-bottom:10px }
+
+/* Tables / lists */
+.table{ width:100%; border-collapse:collapse; margin-top:10px }
+.table th, .table td{ padding:8px 10px; border-bottom:1px solid #f1f5f9; text-align:left; font-size:14px }
+.pill{ padding:6px 8px; border-radius:999px; font-weight:600; font-size:12px }
+.ok{ background:rgba(46,164,79,0.1); color:var(--ok); border:1px solid rgba(46,164,79,0.12) }
+.nok{ background:rgba(229,83,83,0.08); color:var(--nok); border:1px solid rgba(229,83,83,0.12) }
+.inline{ display:flex; gap:8px; align-items:center }
+.scroll{ max-height:320px; overflow:auto; padding-right:6px }
+
+/* Footer */
+.foot{ font-size:13px; color:var(--muted); padding:12px 0; text-align:center; }
+footer.foot{ margin-top: auto }
+
+.list-log{ list-style:none; padding:0; margin:0 }
+.list-log li{ padding:8px 0; border-bottom:1px dashed #eef4fb }
+.muted{ color:var(--muted); font-size:13px }
+.link{ color:var(--accent); text-decoration:none }
+
+/* Responsive tweaks */
+@media (max-width:1200px){
+  .container{ width:90%; }
+}
+@media (max-width:920px){
+  :root{ --left-col: 100%; }
+  .container{ width:100%; grid-template-columns:1fr; padding:12px }
+  .card{ width:100% }
+  .center-card{ padding:40px 12px }
+}
+
+/* Login page specific: center form contents without affecting other forms */
+.center-card.login-page .card { text-align: center; }
+.center-card.login-page .card .form { display:flex; flex-direction:column; align-items:center; }
+.center-card.login-page .card .form label { width: 90%; text-align: left; margin: 8px 0 6px; }
+.center-card.login-page .card .form input[type="text"],
+.center-card.login-page .card .form input[type="password"],
+.center-card.login-page .card .form button { width: 90%; }
+.center-card.login-page .card .form .btn { padding-left:0; padding-right:0 }
+
+/* Ensure the login page main area is perfectly centered in the viewport */
+.center-card.login-page {
+  min-height: 100vh; /* full viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.center-card.login-page .card { margin: 0 auto; }
+
+/* small helper: table responsiveness */
+@media (max-width:480px){
+  .table th, .table td{ font-size:13px; padding:6px 8px }
+}
