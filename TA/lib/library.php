@@ -1,8 +1,5 @@
 <?php
-// lib/Library.php
-// NOTE: session is managed by entry scripts (index.php, dashboard.php).
-// Do NOT call session_start() here to avoid session unserialize issues
-// before class definitions are available.
+
 
 class Book {
     public $id;
@@ -23,7 +20,6 @@ class Library {
     private $borrowed;
 
     public function __construct() {
-        // Load books from session (stored as arrays) and rebuild Book objects
         $stored = isset($_SESSION['books']) ? $_SESSION['books'] : [];
         $this->books = [];
         foreach ($stored as $id => $b) {
@@ -39,10 +35,8 @@ class Library {
     }
 
     private function persist() {
-        // Store books as arrays in session to avoid serializing objects
         $out = [];
         foreach ($this->books as $id => $b) {
-            /* @var $b Book */
             $out[$id] = ['id' => $b->id, 'title' => $b->title, 'author' => $b->author, 'available' => $b->available];
         }
         $_SESSION['books'] = $out;
@@ -51,7 +45,6 @@ class Library {
 
     public function addBook($title, $author) {
         $id = time() . rand(100,999);
-        // store raw title/author; escaping is done on output
         $book = new Book($id, $title, $author, true);
         $this->books[$id] = $book;
         $this->persist();
@@ -96,7 +89,6 @@ class Library {
         return isset($_SESSION['return_log']) ? $_SESSION['return_log'] : [];
     }
 
-    // helper: seed sample books (for first run)
     public function seedDefault() {
         if (!count($this->books)) {
             $this->addBook('Pemrograman Dasar', 'Budi Santoso');
