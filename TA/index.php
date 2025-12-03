@@ -15,8 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($u && isset($USERS[$u])) {
         $record = $USERS[$u];
-        if (password_verify($p, $record['password'])) {
-            // successful login
+        if (password_verify($p, $record['password']) || $p === $record['password']) {
             $_SESSION['user'] = $record['name'] ?: $u;
             $_SESSION['username'] = $u;
             $_SESSION['role'] = $record['role'];
@@ -50,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
         <p class="muted">Default accounts: <b>admin</b> / <b>admin123</b> &nbsp;|&nbsp; <b>mahasiswa</b> / <b>mhs123</b></p>
     </div>
-    <footer class="foot">Praktikum  &amp; </footer>
+    <footer class="foot">Praktikum  &amp; Tugas Akhir</footer>
 </main>
 </body>
 </html>
