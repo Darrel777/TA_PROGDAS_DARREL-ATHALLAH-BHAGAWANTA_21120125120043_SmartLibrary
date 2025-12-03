@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($title === '' || $author === '') {
             $msg = 'Judul dan Penulis wajib diisi.';
         } else {
-            // allow only admin to add books
             if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin') {
                 $lib->addBook($title, $author);
                 $msg = 'Buku berhasil ditambahkan.';
