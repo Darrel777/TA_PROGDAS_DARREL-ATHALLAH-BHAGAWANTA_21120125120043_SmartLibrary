@@ -1,7 +1,7 @@
-/* style.css - modern clean style */
+
 
 :root {
-  /* Color palette */
+  
   --bg: #eef2f7;
   --card: #ffffff;
   --accent: #2d8cff;
@@ -9,15 +9,15 @@
   --ok: #2ea44f;
   --nok: #e55353;
 
-  /* Layout / sizing */
+ 
   --shadow: 0 6px 20px rgba(32, 33, 36, 0.08);
   --radius: 10px;
-  --maxw: 1400px;      /* max content width */
-  --left-col: 420px;   /* left panel width */
-  --content-width: 80%; /* percentage width of main container */
+  --maxw: 1400px;      
+  --left-col: 420px;  
+  --content-width: 80%; 
 }
 
-/* Reset / base */
+
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 
@@ -30,7 +30,7 @@ body {
   flex-direction: column;
 }
 
-/* Topbar */
+
 .topbar {
   background: var(--card);
   padding: 14px 24px;
@@ -43,7 +43,7 @@ body {
 .brand { font-weight: 700; color: var(--accent); font-size: 18px; }
 .user  { font-size: 14px; color: var(--muted); }
 
-/* Main layout */
+
 .container {
   width: var(--content-width);
   max-width: var(--maxw);
@@ -62,7 +62,7 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* Forms / inputs */
+
 .form-inline input[type=text] {
   width: 100%;
   margin-bottom: 8px;
@@ -80,7 +80,7 @@ body {
   border: 1px solid #e6eef6;
 }
 
-/* Buttons */
+
 .btn {
   display: inline-block;
   background: var(--accent);
@@ -101,7 +101,7 @@ body {
 
 .btn:hover { filter: brightness(.95); }
 
-/* Cards */
+
 .card {
   background: var(--card);
   padding: 22px;
@@ -121,7 +121,7 @@ body {
 
 .brand { font-size: 24px; }
 
-/* Messages */
+
 .alert {
   background: #fff6f6;
   border: 1px solid #ffd6d6;
@@ -139,7 +139,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* Tables / lists */
+
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -176,7 +176,7 @@ body {
 .inline  { display: flex; gap: 8px; align-items: center; }
 .scroll  { max-height: 320px; overflow: auto; padding-right: 6px; }
 
-/* Footer */
+
 .foot { font-size: 13px; color: var(--muted); padding: 12px 0; text-align: center; }
 footer.foot { margin-top: auto; }
 
@@ -186,7 +186,7 @@ footer.foot { margin-top: auto; }
 .muted { color: var(--muted); font-size: 13px; }
 .link  { color: var(--accent); text-decoration: none; }
 
-/* Responsive tweaks */
+
 @media (max-width: 1200px) {
   .container { width: 90%; }
 }
@@ -202,7 +202,7 @@ footer.foot { margin-top: auto; }
   .center-card { padding: 40px 12px; }
 }
 
-/* Login page specific: center form contents without affecting other forms */
+
 .center-card.login-page .card {
   text-align: center;
 }
@@ -227,9 +227,9 @@ footer.foot { margin-top: auto; }
 
 .center-card.login-page .card .form .btn { padding-left: 0; padding-right: 0; }
 
-/* Ensure the login page main area is perfectly centered in the viewport */
+
 .center-card.login-page {
-  min-height: 100vh; /* full viewport */
+  min-height: 100vh; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -239,7 +239,7 @@ footer.foot { margin-top: auto; }
 
 .center-card.login-page .card { margin: 0 auto; }
 
-/* small helper: table responsiveness */
+
 @media (max-width: 480px) {
   .table th,
   .table td { font-size: 13px; padding: 6px 8px; }
